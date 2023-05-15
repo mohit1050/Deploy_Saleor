@@ -173,7 +173,23 @@ case "$OS" in
 		sudo add-apt-repository ppa:deadsnakes/ppa -y
                 sudo apt-get install -y build-essential python3.9 python3-dev python3.9pip python3.9-cffi python3.9-venv gcc
                 sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
-                sudo apt-get install -y nodejs npm postgresql postgresql-contrib
+		
+                sudo apt-get install -y postgresql postgresql-contrib
+		
+		# Install nvm (if not already installed)
+		if ! command -v nvm &> /dev/null; then
+		  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+		fi
+		# Load nvm into the current shell session
+		export NVM_DIR="$HOME/.nvm"
+		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+		# Install Node.js 
+		nvm install 18.5
+		source ~/.bashrc
+		npm install -g npm@9.5.0
+		source ~/.bashrc
+		source ~/.nvm/nvm.sh
+		
 		sudo apt install uwsgi -y
 		sudo apt install python3.9-distutils -y
                 ;;
@@ -599,7 +615,7 @@ source $HD/env/saleor/bin/activate
 npm install npm@latest
 wait
 # Make sure pip is upgraded
-python3 -m pip install --upgrade pip
+python3.9 -m pip install --upgrade pip
 wait
 # Install Django
 pip3 install Django
@@ -627,12 +643,12 @@ wait
 #sudo -u $UN npm audit fix
 #wait
 # Establish the database
-python3 manage.py migrate
+python3.9 manage.py migrate
 wait
-python3 manage.py populatedb --createsuperuser
+python3.9 manage.py populatedb --createsuperuser
 wait
 # Collect the static elemants
-python3 manage.py collectstatic
+python3.9 manage.py collectstatic
 wait
 # Build the schema
 npm run build-schema
