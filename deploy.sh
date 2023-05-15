@@ -177,7 +177,7 @@ case "$OS" in
 		sudo add-apt-repository ppa:deadsnakes/ppa -y
 		sudo apt-get install -y python3.9 build-essential python3-dev 
 		sudo apt-get update
-		sudo apt install python3.9-distutils python3-venv -y
+		sudo apt install python3.9-distutils python3.9-venv -y
 		# Required for 2.11 and above.
 		sudo apt-get install libpangocairo-1.0-0 -y
 		
@@ -614,16 +614,19 @@ wait
 sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/env/saleor/vassals
 wait
 # Activate the virtual environment
+echo "Activating venv"
 source $HD/env/saleor/bin/activate
 # Update npm
 # npm install 9.5.0
 wait
 # Make sure pip is upgraded
+echo "updating pip"
 python3.9 -m pip install --upgrade pip
 wait
-
+echo "installing psycopg2-binary"
 pip install psycopg2-binary
 wait
+echo "installing psycopg2"
 pip install psycopg2
 wait 
 
