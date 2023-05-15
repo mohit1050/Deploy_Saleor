@@ -40,7 +40,7 @@
 <li>Login as a sudoer and clone this repository into the home directory of the sudo user that will be installing Saleor, and Saleor Desktop.</li>
 
 ```
-git clone https://github.com/thewhiterabbit/Deploy_Saleor.git
+git clone https://github.com/mohit1050/Deploy_Saleor.git
 ```
 
 <li>With sudo, from the home directory, run the deploy.sh script.</li>
