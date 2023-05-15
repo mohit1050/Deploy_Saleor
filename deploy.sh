@@ -154,7 +154,7 @@ sleep 1
 case "$OS" in
         Debian)
                 sudo apt-get update
-                sudo apt-get install -y build-essential python3-dev python3-pip python3-cffi python3-venv gcc
+                sudo apt-get install -y build-essential python3.9-dev python3-pip python3-cffi python3-venv gcc
                 sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
                 sudo apt-get install -y nodejs npm postgresql postgresql-contrib
                 ;;
@@ -170,34 +170,21 @@ case "$OS" in
 
         Ubuntu)
                 sudo apt-get update
-		sudo add-apt-repository ppa:deadsnakes/ppa -y
-                sudo apt-get install -y build-essential python3.9 python3.9-dev libpq-dev python3.9-distutils python3-pip python3-cffi python3.9-venv gcc
+                sudo apt-get install -y build-essential python3.9-dev python3-pip python3-cffi python3-venv gcc
                 sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
-		
                 sudo apt-get install -y postgresql postgresql-contrib
-		sudo apt install nginx
-		sudo apt-get install libxml2-dev libxslt-dev
 		
 		# Install nvm (if not already installed)
 		if ! command -v nvm &> /dev/null; then
 		  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 		fi
-		# Load nvm into the current shell session
 		export NVM_DIR="$HOME/.nvm"
 		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-		# Install Node.js 
 		nvm install 18.5
+		sudo apt-get update
 		source ~/.bashrc
 		npm install -g npm@9.5.0
-		source ~/.bashrc
 		source ~/.nvm/nvm.sh
-		sudo apt install virtualenv -y
-
-		sudo apt install uwsgi -y		
-		pip install psycopg2-binary
-		pip install psycopg2
-		source ~/.bashrc
-		sudo apt install python3-django -y
                 ;;
 
         *)
@@ -369,10 +356,10 @@ fi
 #
 if [ "$vOPT" = "true" ]; then
         if [ "$VERSION" = "" ]; then
-                VERSION="3.6"
+                VERSION="2.11.1"
         fi
 else
-        VERSION="3.6"
+        VERSION="2.11.1"
 fi
 #
 if [ "$STATIC_URL" = "" ]; then
@@ -430,15 +417,15 @@ echo ""
 # Check if the -v (version) option was used
 if [ "$vOPT" = "true" ]; then
         # Get the Mirumee repo
-        sudo -u $UN git clone https://github.com/saleor/saleor.git
+        sudo -u $UN git clone https://github.com/mirumee/saleor.git
 else
         # Was a repo specified?
-        if [ "$REPO" = "saleor" ]; then
+        if [ "$REPO" = "mirumee" ]; then
                 # Get the Mirumee repo
-                sudo -u $UN git clone https://github.com/saleor/saleor.git
+                sudo -u $UN git clone https://github.com/mirumee/saleor.git
         else
                 # Get the Mirumee repo
-                sudo -u $UN git clone https://github.com/saleor/saleor.git
+                sudo -u $UN git clone https://github.com/mirumee/saleor.git
 
                 ###### For possible later use ######
                 # Get the forked repo from thewhiterabbit
@@ -616,12 +603,12 @@ wait
 sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/env/saleor/vassals
 wait
 # Activate the virtual environment
-#source $HD/env/saleor/bin/activate
+source $HD/env/saleor/bin/activate
 # Update npm
-#npm install npm@latest
+npm install 9.5.0
 wait
 # Make sure pip is upgraded
-python3.9 -m pip install --upgrade pip
+python3 -m pip install --upgrade pip
 wait
 # Install Django
 pip3 install Django
@@ -638,8 +625,8 @@ wait
 pip3 install -r requirements.txt
 wait
 # Install the decoupler for .env file
-# pip3 install python-decouple
-# wait
+pip3 install python-decouple
+wait
 # Set any secret Environment Variables
 export ADMIN_PASS="$ADMIN_PASS"
 # Install the project
@@ -649,12 +636,12 @@ wait
 #sudo -u $UN npm audit fix
 #wait
 # Establish the database
-python3.9 manage.py migrate
+python3 manage.py migrate
 wait
-python3.9 manage.py populatedb --createsuperuser
+python3 manage.py populatedb --createsuperuser
 wait
 # Collect the static elemants
-python3.9 manage.py collectstatic
+python3 manage.py collectstatic
 wait
 # Build the schema
 npm run build-schema
