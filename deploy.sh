@@ -616,9 +616,9 @@ wait
 sudo ln -s $HD/saleor/saleor/wsgi/prod.ini $HD/env/saleor/vassals
 wait
 # Activate the virtual environment
-source $HD/env/saleor/bin/activate
+#source $HD/env/saleor/bin/activate
 # Update npm
-npm install npm@latest
+#npm install npm@latest
 wait
 # Make sure pip is upgraded
 python3.9 -m pip install --upgrade pip
