@@ -170,7 +170,17 @@ case "$OS" in
 
         Ubuntu)
                 sudo apt-get update
-                sudo apt-get install -y build-essential python3-dev python3-pip python3-cffi python3-venv gcc
+#                 sudo apt-get install -y build-essential python3-dev python3-pip python3-cffi python3-venv gcc
+		
+		sudo apt-get remove needrestart -y
+		sudo apt install -y virtualenv uwsgi -y
+		sudo add-apt-repository ppa:deadsnakes/ppa -y
+		sudo apt-get install -y python3.9 build-essential python3-dev 
+		sudo apt-get update
+		sudo apt install python3.9-distutils -y
+		# Required for 2.11 and above.
+		sudo apt-get install libpangocairo-1.0-0 -y
+		
                 sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
                 sudo apt-get install -y postgresql postgresql-contrib
 		sudo apt install nginx -y
