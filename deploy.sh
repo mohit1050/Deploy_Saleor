@@ -347,7 +347,7 @@ if [ "$vOPT" = "true" ]; then
                 VERSION="3.6"
         fi
 else
-        VERSION="3.4"
+        VERSION="3.6"
 fi
 #
 if [ "$STATIC_URL" = "" ]; then
