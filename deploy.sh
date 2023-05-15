@@ -356,10 +356,10 @@ fi
 #
 if [ "$vOPT" = "true" ]; then
         if [ "$VERSION" = "" ]; then
-                VERSION="2.11.1"
+                VERSION="3.6"
         fi
 else
-        VERSION="2.11.1"
+        VERSION="3.6"
 fi
 #
 if [ "$STATIC_URL" = "" ]; then
@@ -417,15 +417,15 @@ echo ""
 # Check if the -v (version) option was used
 if [ "$vOPT" = "true" ]; then
         # Get the Mirumee repo
-        sudo -u $UN git clone https://github.com/mirumee/saleor.git
+        sudo -u $UN git clone https://github.com/saleor/saleor.git
 else
         # Was a repo specified?
         if [ "$REPO" = "mirumee" ]; then
                 # Get the Mirumee repo
-                sudo -u $UN git clone https://github.com/mirumee/saleor.git
+                sudo -u $UN git clone https://github.com/saleor/saleor.git
         else
                 # Get the Mirumee repo
-                sudo -u $UN git clone https://github.com/mirumee/saleor.git
+                sudo -u $UN git clone https://github.com/saleor/saleor.git
 
                 ###### For possible later use ######
                 # Get the forked repo from thewhiterabbit
