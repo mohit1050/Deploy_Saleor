@@ -191,7 +191,8 @@ case "$OS" in
 		npm install -g npm@9.5.0
 		source ~/.bashrc
 		source ~/.nvm/nvm.sh
-		
+		sudo apt install virtualenv -y
+
 		sudo apt install uwsgi -y		
 		pip install psycopg2-binary
 		pip install psycopg2
