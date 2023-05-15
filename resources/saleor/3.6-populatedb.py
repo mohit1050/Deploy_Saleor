@@ -140,3 +140,4 @@ class Command(BaseCommand):
             self.stdout.write(msg)
         for msg in create_staffs():
             self.stdout.write(msg)
+            
