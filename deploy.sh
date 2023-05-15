@@ -609,7 +609,7 @@ source $HD/env/saleor/bin/activate
 # npm install 9.5.0
 wait
 # Make sure pip is upgraded
-python3 -m pip install --upgrade pip
+python3.9 -m pip install --upgrade pip
 wait
 # Install Django
 pip3 install Django
@@ -623,7 +623,7 @@ wait
 pip3 install uwsgi
 wait
 # Install the project requirements
-pip3 install -r requirements.txt
+python3.9 -m pip3 install -r requirements.txt
 wait
 # Install the decoupler for .env file
 pip3 install python-decouple
