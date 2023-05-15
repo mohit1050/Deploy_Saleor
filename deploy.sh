@@ -621,6 +621,13 @@ wait
 # Make sure pip is upgraded
 python3.9 -m pip install --upgrade pip
 wait
+
+pip install psycopg2-binary
+wait
+pip install psycopg2
+wait 
+
+source ~/.bashrc
 # Install Django
 pip3 install Django
 wait
