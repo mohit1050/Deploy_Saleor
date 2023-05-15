@@ -181,7 +181,7 @@ case "$OS" in
 		fi
 		export NVM_DIR="$HOME/.nvm"
 		[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-		nvm install 18.5
+		nvm install 18.5.0
 		sudo apt-get update
 		source ~/.bashrc
 		npm install -g npm@9.5.0
@@ -606,7 +606,7 @@ wait
 # Activate the virtual environment
 source $HD/env/saleor/bin/activate
 # Update npm
-npm install 9.5.0
+# npm install 9.5.0
 wait
 # Make sure pip is upgraded
 python3 -m pip install --upgrade pip
