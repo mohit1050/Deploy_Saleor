@@ -171,7 +171,7 @@ case "$OS" in
         Ubuntu)
                 sudo apt-get update
 		sudo add-apt-repository ppa:deadsnakes/ppa -y
-                sudo apt-get install -y build-essential python3.9 python3-dev python3-pip python3-cffi python3.9-venv gcc
+                sudo apt-get install -y build-essential python3.9 python3.9-dev libpq-dev python3.9-distutils python3-pip python3-cffi python3.9-venv gcc
                 sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 		
                 sudo apt-get install -y postgresql postgresql-contrib
@@ -192,8 +192,11 @@ case "$OS" in
 		source ~/.bashrc
 		source ~/.nvm/nvm.sh
 		
-		sudo apt install uwsgi -y
-		sudo apt install python3.9-distutils -y
+		sudo apt install uwsgi -y		
+		pip install psycopg2-binary
+		pip install psycopg2
+		source ~/.bashrc
+		sudo apt install python3-django -y
                 ;;
 
         *)
