@@ -638,8 +638,8 @@ wait
 pip3 install -r requirements.txt
 wait
 # Install the decoupler for .env file
-pip3 install python-decouple
-wait
+# pip3 install python-decouple
+# wait
 # Set any secret Environment Variables
 export ADMIN_PASS="$ADMIN_PASS"
 # Install the project
