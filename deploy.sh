@@ -197,6 +197,17 @@ case "$OS" in
 		source ~/.bashrc
 		npm install -g npm@9.5.0
 		source ~/.nvm/nvm.sh
+		# Make sure pip is upgraded
+		echo "updating pip"
+		python3.9 -m pip install --upgrade pip
+		wait
+		echo "installing psycopg2-binary"
+		pip install psycopg2-binary
+		wait
+		echo "installing psycopg2"
+		pip install psycopg2
+		wait 
+		source ~/.bashrc
                 ;;
 
         *)
@@ -620,18 +631,7 @@ source $HD/env/saleor/bin/activate
 # Update npm
 # npm install 9.5.0
 wait
-# Make sure pip is upgraded
-echo "updating pip"
-python3.9 -m pip install --upgrade pip
-wait
-echo "installing psycopg2-binary"
-pip install psycopg2-binary
-wait
-echo "installing psycopg2"
-pip install psycopg2
-wait 
 
-source ~/.bashrc
 # Install Django
 pip3 install Django
 wait
