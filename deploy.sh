@@ -203,6 +203,8 @@ case "$OS" in
 # 		echo "updating pip"
 # 		python3.9 -m pip install --upgrade pip
 # 		wait
+		sudo apt-get install libpq-dev -y
+
 		echo "installing psycopg2-binary"
 		pip install psycopg2-binary
 		wait
