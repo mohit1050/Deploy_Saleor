@@ -198,9 +198,9 @@ case "$OS" in
 		npm install -g npm@9.5.0
 		source ~/.nvm/nvm.sh
 		# Make sure pip is upgraded
-		echo "updating pip"
-		python3.9 -m pip install --upgrade pip
-		wait
+# 		echo "updating pip"
+# 		python3.9 -m pip install --upgrade pip
+# 		wait
 		echo "installing psycopg2-binary"
 		pip install psycopg2-binary
 		wait
