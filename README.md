@@ -37,6 +37,13 @@
 <hr>
 <h3>Instructions</h3>
 <ol>
+```
+sudo su
+```
+```
+cd /root
+```
+    
 <li>Login as a sudoer and clone this repository into the home directory of the sudo user that will be installing Saleor, and Saleor Desktop.</li>
 
 ```
