@@ -177,6 +177,7 @@ case "$OS" in
 		sudo add-apt-repository ppa:deadsnakes/ppa -y
 		sudo apt-get install -y python3.9 build-essential python3-dev 
 		sudo apt-get update
+		sudo apt install libpq-dev -y
 		sudo apt install python3.9-distutils python3.9-venv -y
 		# Required for 2.11 and above.
 		sudo apt-get install libpangocairo-1.0-0 -y
