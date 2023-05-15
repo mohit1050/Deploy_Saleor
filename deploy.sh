@@ -175,6 +175,8 @@ case "$OS" in
                 sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev shared-mime-info
 		
                 sudo apt-get install -y postgresql postgresql-contrib
+		sudo apt install nginx
+		sudo apt-get install libxml2-dev libxslt-dev
 		
 		# Install nvm (if not already installed)
 		if ! command -v nvm &> /dev/null; then
