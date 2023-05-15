@@ -633,7 +633,7 @@ wait
 pip3 install uwsgi
 wait
 # Install the project requirements
-python3.9 -m pip3 install -r requirements.txt
+python3.9 -m pip install -r requirements.txt
 wait
 # Install the decoupler for .env file
 pip3 install python-decouple
