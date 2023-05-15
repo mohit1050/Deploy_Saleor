@@ -170,15 +170,16 @@ case "$OS" in
 
         Ubuntu)
                 sudo apt-get update
-#                 sudo apt-get install -y build-essential python3-dev python3-pip python3-cffi python3-venv gcc
 		
 		sudo apt-get remove needrestart -y
 		sudo apt install -y virtualenv uwsgi -y
 		sudo add-apt-repository ppa:deadsnakes/ppa -y
-		sudo apt-get install -y python3.9 build-essential python3-dev python3-pip
+		sudo apt-get install python3.9 -y
+		sudo apt-get install build-essential python3-dev -y
 		sudo apt-get update
-		sudo apt install libpq-dev -y
-		sudo apt install python3.9-distutils python3.9-venv -y
+		sudo apt install python3.9-distutils -y
+		sudo apt-get install -y python3-pip python3-cffi python3-venv gcc
+
 		# Required for 2.11 and above.
 		sudo apt-get install libpangocairo-1.0-0 -y
 		
