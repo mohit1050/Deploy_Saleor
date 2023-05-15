@@ -178,7 +178,8 @@ case "$OS" in
 		sudo apt-get install build-essential python3-dev -y
 		sudo apt-get update
 		sudo apt install python3.9-distutils -y
-		sudo apt-get install -y python3-pip python3-cffi python3-venv gcc
+		sudo apt-get install -y python3-pip python3-venv gcc
+# 		sudo apt-get install -y python3-pip python3-cffi python3-venv gcc
 
 		# Required for 2.11 and above.
 		sudo apt-get install libpangocairo-1.0-0 -y
